@@ -1,43 +1,72 @@
 <?php
 namespace app\index\controller;
 
-use Workerman\Worker;
-use PHPSocketIO\SocketIO;
+use think\worker\Server;
+use Workerman\Lib\Timer;
 use Channel\Client;
 
-/**
- * SocketIO服务.
- */
-class Socket
+class Socket extends Server
 {
+    protected $socket = 'webSocket://0.0.0.0:12234';
+    protected $clients=array();
+    protected $processes = 100;
+    protected $name = 'TaskWorker';
 
-    protected $io;
-
-    public function __construct()
+    /**
+     * worker启动.
+     */
+    public function onWorkerStart($worker)
     {
-        $io = new SocketIO(2120);
+        $this->worker = $worker;
+        $worker->name = 'TaskWorker';
 
-        // 当socketio服务启动时 连接到channel服务端
-        $io->on('workerStart', function()use($io) {
-            Client::connect('0.0.0.0', 2206);
-        });
-
-        // 当浏览器连接入来时 监听广播事件
-        $io->on('connection', function ($socket) use ($io) {
-
-            // 收到Channel广播事件
-            Client::on('sayHello', function($event_data) use($socket){
-                echo 'sayHello';
-                var_dump($event_data);
-                $socket->emit('sayHello', $event_data);
-             });
-
-        });
-
-        $this->io = $io;
-
-        if (!defined('GLOBAL_START')) {
-            Worker::runAll();
-        }
     }
+
+    public function onConnect($connection)
+    {
+        // global $worker;
+        Client::connect('127.0.0.1', 2206);
+
+        Client::on('mkMsg',function($data){
+            var_dump($data);
+            //$this->sendMessageByUid(1,"111111====1111");
+        });
+         var_dump($connection->id);
+         $this->clients[$connection->id] = $connection;
+    }
+
+    public function sendMessageByUid($uid, $message) {
+        if(isset($this->clients[$uid]))$this->clients[$uid]->send($message);
+	}
+
+    public function onMessage($connection, $data)
+    {
+        try{
+            echo '定时任务收到你的消息了';
+            echo 'data:' . $data . "\n";
+            //$this->sendMessageByUid(1,"111111====1111");
+            //$data = \json_decode($data, true);
+            //call_user_func([$this, $data['task']], [$connection, $data]);}catch($e){
+
+        }catch(Exception $e){
+            var_dump($e);
+        }
+        
+    }
+
+    public function onClose($connection)
+    {
+        
+        unset($this->clients[$connection->id]);
+    }
+
+    // protected function sayHelloWorld($data)
+    // {
+    //     list($connection, $params) = $data;
+    //     echo "正在处理task: sayHelloWorld\n";
+    //     $event_name = 'sayHello';
+    //     // 广播事件
+    //     Client::publish($event_name, $params);
+    //     $connection->send('完成');
+    // }
 }

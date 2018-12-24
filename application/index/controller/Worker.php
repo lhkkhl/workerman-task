@@ -19,20 +19,21 @@ class Worker extends Server
     {
         $this->worker = $worker;
         $worker->name = 'TaskWorker';
-        Client::connect('0.0.0.0', 2206);
+        Client::connect('127.0.0.1', 2206);
     }
 
     public function onConnect($connection)
     {
+
     }
 
     public function onMessage($connection, $data)
     {
         echo '定时任务收到你的消息了';
         echo 'data:' . $data . "\n";
-
-        $data = \json_decode($data, true);
-        call_user_func([$this, $data['task']], [$connection, $data]);
+        $connection->send('1111');
+        //$data = \json_decode($data, true);
+        //call_user_func([$this, $data['task']], [$connection, $data]);
         
     }
 
@@ -44,7 +45,6 @@ class Worker extends Server
     {
         list($connection, $params) = $data;
         echo "正在处理task: sayHelloWorld\n";
-        sleep(rand(1, 5));
         $event_name = 'sayHello';
         // 广播事件
         Client::publish($event_name, $params);

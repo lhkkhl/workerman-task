@@ -96,7 +96,7 @@
         socket: '',
         result: [],
         task: {
-          name: 'helloWorld',
+          name: 'helloWo1rld',
           num: 100
         },
         rules: {
@@ -111,13 +111,21 @@
     },
     methods: {
       fetch() {
-        this.socket = io('http://0.0.0.0:2120')
-        this.socket.on('connect', () => {
-          this.$message.success('链接服务成功!')
-        })
-        this.socket.on('sayHello', (res) => {
-          this.result.unshift(res)
-        })
+       var oo = new WebSocket('ws://192.168.88.122:12234')
+        // this.socket = io('http://192.168.88.122:2120')
+        // this.socket.on('connect', () => {
+        //   this.$message.success('链接服务成功!')
+        // })
+        // this.socket.on('sayHello', (res) => {
+        //   this.result.unshift(res)
+        // })
+        oo.onopen = function (ee){
+          console.log(ee)
+        }
+        oo.onmessage = function (e){
+          console.log(e)
+        }
+
       },
       
       submitForm(formName) {
@@ -125,7 +133,7 @@
           if (valid) {
             var time = Date.parse(new Date())
             for (var i = 0; i < this.task.num; i++) {
-              axios.get('http://0.0.0.0:4237?task=' + this.task.name + '&job_id=' + i + '&time=' + time)
+              axios.get('http://192.168.88.122:4237?task=' + this.task.name + '&job_id=' + i + '&time=' + time)
             }
           } else {
             console.log('error submit!!');

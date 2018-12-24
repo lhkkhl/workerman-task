@@ -11,7 +11,7 @@ class Channel
 {
     public function __construct()
     {
-        $channel_server = new Server('0.0.0.0', 2206);
+        $channel_server = new Server('127.0.0.1', 2206);
 
         if (!defined('GLOBAL_START')) {
             Worker::runAll();

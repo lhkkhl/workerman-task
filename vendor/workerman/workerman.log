@@ -1334,3 +1334,183 @@ Stack trace:
 2018-12-01 17:11:53 pid:47 Workerman[channel.php] stopping ...
 2018-12-01 17:11:53 pid:47 Workerman[channel.php] has been stopped
 2018-12-01 17:12:20 pid:50 Workerman[socketio.php] start in DEBUG mode
+2018-12-24 09:34:46 pid:1 think\exception\ErrorException: call_user_func() expects parameter 1 to be a valid callback, second array member is not a valid method in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Worker.php:35
+Stack trace:
+#0 [internal function]: think\Error::appError(2, 'call_user_func(...', 'C:\\Users\\Admini...', 35, Array)
+#1 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Worker.php(35): call_user_func(Array, Array)
+#2 [internal function]: app\index\controller\Worker->onMessage(Object(Workerman\Connection\TcpConnection), NULL)
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Connection\TcpConnection.php(658): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 'GET / HTTP/1.1')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #55)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#11 [internal function]: think\worker\Server->__construct()
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('worker', 'controller', false, 'Error')
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#17 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#18 C:\Users\Administrator\Desktop\workerman-task\server.php(8): require('C:\\Users\\Admini...')
+#19 {main}
+2018-12-24 09:34:46 pid:1 Worker process terminated
+2018-12-24 09:35:40 pid:1 think\exception\ErrorException: call_user_func() expects parameter 1 to be a valid callback, second array member is not a valid method in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Worker.php:35
+Stack trace:
+#0 [internal function]: think\Error::appError(2, 'call_user_func(...', 'C:\\Users\\Admini...', 35, Array)
+#1 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Worker.php(35): call_user_func(Array, Array)
+#2 [internal function]: app\index\controller\Worker->onMessage(Object(Workerman\Connection\TcpConnection), NULL)
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Connection\TcpConnection.php(658): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 'GET / HTTP/1.1')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #55)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#11 [internal function]: think\worker\Server->__construct()
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('worker', 'controller', false, 'Error')
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#17 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#18 C:\Users\Administrator\Desktop\workerman-task\server.php(8): require('C:\\Users\\Admini...')
+#19 {main}
+2018-12-24 09:35:40 pid:1 Worker process terminated
+2018-12-24 09:56:46 pid:1 Error: Call to undefined function app\index\controller\sendMessageByUid() in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php:30
+Stack trace:
+#0 [internal function]: app\index\controller\Socket->onConnect(Object(Workerman\Connection\TcpConnection))
+#1 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2388): call_user_func(Array, Object(Workerman\Connection\TcpConnection))
+#2 [internal function]: Workerman\Worker->acceptConnection(Resource id #44)
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#9 [internal function]: think\worker\Server->__construct()
+#10 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#11 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('socket', 'controller', false, 'Error')
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#16 C:\Users\Administrator\Desktop\workerman-task\socketio.php(8): require('C:\\Users\\Admini...')
+#17 {main}
+2018-12-24 09:56:46 pid:1 Worker process terminated
+2018-12-24 10:01:32 pid:1 think\exception\ErrorException: Undefined variable: worker in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php:29
+Stack trace:
+#0 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php(29): think\Error::appError(8, 'Undefined varia...', 'C:\\Users\\Admini...', 29, Array)
+#1 [internal function]: app\index\controller\Socket->onConnect(Object(Workerman\Connection\TcpConnection))
+#2 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2388): call_user_func(Array, Object(Workerman\Connection\TcpConnection))
+#3 [internal function]: Workerman\Worker->acceptConnection(Resource id #44)
+#4 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#10 [internal function]: think\worker\Server->__construct()
+#11 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('socket', 'controller', false, 'Error')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#17 C:\Users\Administrator\Desktop\workerman-task\socketio.php(8): require('C:\\Users\\Admini...')
+#18 {main}
+2018-12-24 10:01:32 pid:1 Worker process terminated
+2018-12-24 10:05:50 pid:1 think\exception\ErrorException: A non well formed numeric value encountered in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php:31
+Stack trace:
+#0 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php(31): think\Error::appError(8, 'A non well form...', 'C:\\Users\\Admini...', 31, Array)
+#1 [internal function]: app\index\controller\Socket->onConnect(Object(Workerman\Connection\TcpConnection))
+#2 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2388): call_user_func(Array, Object(Workerman\Connection\TcpConnection))
+#3 [internal function]: Workerman\Worker->acceptConnection(Resource id #44)
+#4 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#10 [internal function]: think\worker\Server->__construct()
+#11 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('socket', 'controller', false, 'Error')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#17 C:\Users\Administrator\Desktop\workerman-task\socketio.php(8): require('C:\\Users\\Admini...')
+#18 {main}
+2018-12-24 10:05:50 pid:1 Worker process terminated
+2018-12-24 10:14:10 pid:1 think\exception\ErrorException: Undefined offset: 2 in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php:47
+Stack trace:
+#0 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php(47): think\Error::appError(8, 'Undefined offse...', 'C:\\Users\\Admini...', 47, Array)
+#1 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Socket.php(36): app\index\controller\Socket->sendMessageByUid(2, '111111====1111')
+#2 [internal function]: app\index\controller\Socket->onConnect(Object(Workerman\Connection\TcpConnection))
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2388): call_user_func(Array, Object(Workerman\Connection\TcpConnection))
+#4 [internal function]: Workerman\Worker->acceptConnection(Resource id #44)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 C:\Users\Administrator\Desktop\workerman-task\vendor\topthink\think-worker\src\Server.php(48): Workerman\Worker::runAll()
+#11 [internal function]: think\worker\Server->__construct()
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('socket', 'controller', false, 'Error')
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#17 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#18 C:\Users\Administrator\Desktop\workerman-task\socketio.php(8): require('C:\\Users\\Admini...')
+#19 {main}
+2018-12-24 10:14:10 pid:1 Worker process terminated
+2018-12-24 10:36:09 pid:1 think\exception\ErrorException: call_user_func() expects parameter 1 to be a valid callback, class 'app\index\controller\Http' does not have a method 'helloWo1rld' in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Http.php:26
+Stack trace:
+#0 [internal function]: think\Error::appError(2, 'call_user_func(...', 'C:\\Users\\Admini...', 26, Array)
+#1 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Http.php(26): call_user_func(Array, Array)
+#2 [internal function]: app\index\controller\Http->app\index\controller\{closure}(Object(Workerman\Connection\TcpConnection), Array)
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #56)
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#8 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Http.php(34): Workerman\Worker::runAll()
+#11 [internal function]: app\index\controller\Http->__construct()
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('http', 'controller', false, 'Error')
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#16 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#17 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#18 C:\Users\Administrator\Desktop\workerman-task\http.php(8): require('C:\\Users\\Admini...')
+#19 {main}
+2018-12-24 10:36:09 pid:1 Worker process terminated
+2018-12-24 11:18:25 pid:1 Worker process terminated
+2018-12-24 11:19:13 pid:1 Worker process terminated
+2018-12-24 11:38:10 pid:1 Error: Call to undefined method app\index\controller\Http::header() in C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Http.php:23
+Stack trace:
+#0 [internal function]: app\index\controller\Http->app\index\controller\{closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), Array)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #47)
+#3 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 C:\Users\Administrator\Desktop\workerman-task\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 C:\Users\Administrator\Desktop\workerman-task\application\index\controller\Http.php(39): Workerman\Worker::runAll()
+#9 [internal function]: app\index\controller\Http->__construct()
+#10 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(359): ReflectionClass->newInstanceArgs(Array)
+#11 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\Loader.php(479): think\App::invokeClass('app\\index\\contr...')
+#12 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(575): think\Loader::controller('http', 'controller', false, 'Error')
+#13 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(456): think\App::module(Array, Array, true)
+#14 C:\Users\Administrator\Desktop\workerman-task\thinkphp\library\think\App.php(139): think\App::exec(Array, Array)
+#15 C:\Users\Administrator\Desktop\workerman-task\thinkphp\start.php(19): think\App::run()
+#16 C:\Users\Administrator\Desktop\workerman-task\http.php(8): require('C:\\Users\\Admini...')
+#17 {main}
+2018-12-24 11:38:10 pid:1 Worker process terminated
